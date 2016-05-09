@@ -37,3 +37,6 @@ bower install bootstrap --save //安装bootstrap
 ###supervisor
 npm install supervisor //监控后台代码，不用手动重启服务
 supervisor build/dev-server.js
+
+###indent
+main.js router.map里各语句缩进必须是两个空格，否则会报错
