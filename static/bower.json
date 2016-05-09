@@ -1,0 +1,17 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/shinyting/vue-mongoose-practise",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
