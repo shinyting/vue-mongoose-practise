@@ -28,6 +28,13 @@ npm test
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
+###使用vue-cli生成项目
+$ npm install -g vue-cli
+$ vue init webpack vue-mongoose-practise
+$ cd vue-mongoose-practise
+$ npm install
+$ npm run dev
+
 ###static resource
 bower init //初始化静态资源目录
 bower install bootstrap --save //安装bootstrap
