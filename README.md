@@ -34,6 +34,9 @@ $ vue init webpack vue-mongoose-practise
 $ cd vue-mongoose-practise
 $ npm install
 $ npm run dev
+实际操作中在package.json中配置启动命令
+该例中把dev 改为"start": "supervisor build/dev-server.js"
+使用 npm start 启动项目
 
 ###static resource
 bower init //初始化静态资源目录
