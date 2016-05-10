@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import Home from './components/Home'
-import TimeEntries from './components/TimeEntries'
-import LogTime from './components/LogTime'
+import List from './components/List'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -13,20 +12,15 @@ Vue.use(VueRouter)
 const router = new VueRouter()
 
 router.map({
-  '/Home': {
+  '/home': {
     component: Home
   },
-  '/time-entries': {
-    component: TimeEntries,
-    subRoutes: {
-      '/log-time': {
-        component: LogTime
-      }
-    }
+  '/list': {
+    component: List
   }
 })
 router.redirect({
-  '*': '/Home'
+  '*': '/home'
 })
 
 router.start(App, '#app')
