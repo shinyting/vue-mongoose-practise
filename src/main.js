@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import Hello from './components/Hello'
+import Home from './components/Home'
+import TimeEntries from './components/TimeEntries'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -11,12 +12,15 @@ Vue.use(VueRouter)
 const router = new VueRouter()
 
 router.map({
-  '/hello': {
-    component: Hello
+  '/Home': {
+    component: Home
+  },
+  '/time-entries': {
+    component: TimeEntries
   }
 })
 router.redirect({
-  '*': '/hello'
+  '*': '/Home'
 })
 
 router.start(App, '#app')
