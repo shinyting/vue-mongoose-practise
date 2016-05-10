@@ -4,16 +4,16 @@
 			v-if="$route.path !== '/time-entries/log-time'"
 			v-link="'/time-entries/log-time'"
 			class="btn btn-primary">
-			创建
+			create
 		</button>
 		<div v-if="$route.path === 'time-entries/log-time'">
-			<h3>创建</h3>
+			<h3>create</h3>
 		</div>
 		<hr>
 		<router-view></router-view>
 		<div class="time-entries">
 			<p v-if="!timeEntries.length">
-				<strong>还没有任何任务</strong>
+				<strong>no Todo thing</strong>
 			</p>
 			<div class="list-group">
 				<a class="list-group-item" v-for="timeEntry in timeEntries">
@@ -54,38 +54,38 @@
 </template>
 
 <script>
-	export default {
-	  data () {
-	    let existingEntry = {
-	      user: {
-		    name: 'erzhe',
-		    email: 'zhangting20.90@163.com',
-		    image: 'https://github.com/shinyting/myResume/blob/master/images/mypic.jpg'
-		  },
-		  comment: '我的一个备注',
-		  totalTime: 1.5,
-		  date: '2016-05-01'
-	    }
-	    return {
-	      timeEntries: [existingEntry]
-	    }
-	  },
-	  methods: {
-	    deleteTimeEntry (timeEntry) {
-		  let index = this.timeEntries.indexOf(timeEntry)
-		  if (window.confirm('确定要删除吗?')) {
-		    this.timeEntries.splice(index, 1)
-		      this.$dispatch('deleteTime', timeEntry)
-		  }
-	    }
-	  },
-	  events: {
-	    timeUpdate (timeEntry) {
-		  this.timeEntries.push(timeEntry)
-		  return true
-	    }
+export default {
+  data () {
+    let existingEntry = {
+      user: {
+        name: 'erzhe',
+        email: 'zhangting20.90@163.com',
+        image: 'https://github.com/shinyting/myResume/blob/master/images/mypic.jpg'
+      },
+      comment: 'one comment',
+      totalTime: 1.5,
+      date: '2016-05-01'
+    }
+    return {
+      timeEntries: [existingEntry]
+    }
+  },
+  methods: {
+    deleteTimeEntry (timeEntry) {
+      let index = this.timeEntries.indexOf(timeEntry)
+      if (window.confirm('sure to delete?')) {
+        this.timeEntries.splice(index, 1)
+        this.$dispatch('deleteTime', timeEntry)
       }
-	}
+    }
+  },
+  events: {
+    timeUpdate (timeEntry) {
+      this.timeEntries.push(timeEntry)
+      return true
+    }
+  }
+}
 </script>
 
 <style>
