@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import Home from './components/Home'
-import List from './components/List'
+import New from './components/New'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -15,8 +15,8 @@ router.map({
   '/home': {
     component: Home
   },
-  '/list': {
-    component: List
+  '/new': {
+    component: New
   }
 })
 router.redirect({
