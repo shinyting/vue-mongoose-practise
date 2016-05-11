@@ -59,14 +59,16 @@
     },
     methods: {
       saveAdd (word) {
-        console.log(word)
+        console.log(word.same.split(' '))
+        console.log(word.label.split(' '))
+        console.log(word.rate.split(' '))
         var params = {
           word: word.name,
           mean: word.mean,
           origin: word.origin,
-          same: [],
-          label: [],
-          rate: []
+          same: word.same.split(' '),
+          label: word.label.split(' '),
+          rate: word.rate.split(' ')
         }
         this.$http({url: '/saveWord', params, method: 'post'}).then(function (response) {
           console.log(response)
