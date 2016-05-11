@@ -2,6 +2,9 @@ import Vue from 'vue'
 import App from './App'
 import Home from './components/Home'
 import New from './components/New'
+import All from './components/all'
+import Hot from './components/hot'
+import Star from './components/star'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -19,6 +22,15 @@ router.map({
   },
   '/new': {
     component: New
+  },
+  '/all': {
+    component: All
+  },
+  '/hot': {
+    component: Hot
+  },
+  'star': {
+    component: Star
   }
 })
 router.redirect({
