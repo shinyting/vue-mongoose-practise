@@ -1,3 +1,4 @@
+require('../db.js')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')

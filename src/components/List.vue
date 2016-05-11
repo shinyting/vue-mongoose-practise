@@ -1,10 +1,10 @@
 <template>
-	<ul class="list-unstyled">
-		<li v-for="item in lists" class="clearfix">
-			<p class="pull-left">{{item.text}}</p>
-			<p class="pull-right">{{item.time}}</p>
-		</li>
-	</ul>
+  	<ul class="list-unstyled">
+    		<li v-for="item in lists" class="clearfix">
+      			<p class="pull-left">{{item.text}}</p>
+      			<p class="pull-right">{{item.time}}</p>
+    		</li>
+  	</ul>
 </template>
 
 <script>
