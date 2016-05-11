@@ -9,7 +9,9 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
-const router = new VueRouter()
+const router = new VueRouter({
+  linkActiveClass: 'active'
+})
 
 router.map({
   '/home': {

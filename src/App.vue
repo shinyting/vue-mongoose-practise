@@ -22,11 +22,11 @@
   export default {
     data () {
       var menuArray = [
-        {navText: '首页', link: '/home', isCur: true},
-        {navText: '词汇录入', link: '/new', isCur: false},
-        {navText: '所有词汇', link: '/all', isCur: false},
-        {navText: '星标词汇', link: '/star', isCur: false},
-        {navText: '热门词汇', link: '/hot', isCur: false}
+        {navText: '首页', link: '/home'},
+        {navText: '词汇录入', link: '/new'},
+        {navText: '所有词汇', link: '/all'},
+        {navText: '星标词汇', link: '/star'},
+        {navText: '热门词汇', link: '/hot'}
       ]
       return {
         menus: menuArray
