@@ -5,7 +5,9 @@ var router = express.Router();
 
 //录入新词
 var saveWord = function (req, res, next) {
-	var word = new Word(req.body);
+	console.log(req);
+	var word = new Word(req.query);
+	console.log(req.query);
 	word.save(function (err, data) {
 		if (!err) {
 			res.send({

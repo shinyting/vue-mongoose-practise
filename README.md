@@ -54,3 +54,5 @@ main.js router.map里各语句缩进必须是两个空格，否则会报错
 ###安装mongoose
 npm install mongoose --save
 连接mongoose的文件 db.js
+
+###ajax传递数据问题
