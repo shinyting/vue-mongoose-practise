@@ -31,6 +31,12 @@
 						</div>
 				</div>
 				<div class="form-group">
+						<label for="inputRate" class="col-sm-2 control-label">使用频率</label>
+						<div class="col-sm-10">
+								<input type="text" class="form-control" id="inputRate" placeholder="please enter 7 rates in a week split in ;">
+						</div>
+				</div>
+				<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 								<button type="button" class="btn btn-primary">add</button>
 						</div>
