@@ -96,6 +96,9 @@
         })
       },
       checkInput (params, string) {
+        this.$http.get('/getWords', function (res) {
+          console.log(res)
+        })
         if (!params.text) {
           params.valid = false
           params.errorTip = 'please fill this information correctly'
