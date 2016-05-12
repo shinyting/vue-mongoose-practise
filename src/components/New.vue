@@ -3,7 +3,7 @@
 		<div class="form-group">
 			<label for="inputWord" class="col-sm-2 control-label">新词：</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputWord" placeholder="new word" v-model="word.name.text" @blur="checkInput(word.name)">
+				<input type="text" class="form-control" id="inputWord" placeholder="new word" v-model="word.name.text" @blur="checkInput(word.name, 'name')">
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.name.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -13,7 +13,7 @@
 		<div class="form-group">
 			<label for="inputMean" class="col-sm-2 control-label">释义：</label>
 			<div class="col-sm-5">
-				<textarea class="form-control" id="inputMean" placeholder="mean" v-model="word.mean.text" @blur="checkInput('mean')"></textarea>
+				<textarea class="form-control" id="inputMean" placeholder="mean" v-model="word.mean.text" @blur="checkInput(word.mean, 'mean')"></textarea>
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.mean.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -23,7 +23,7 @@
 		<div class="form-group">
 			<label for="inputOrigin" class="col-sm-2 control-label">出处：</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputOrigin" placeholder="origin" v-model="word.origin.text">
+				<input type="text" class="form-control" id="inputOrigin" placeholder="origin" v-model="word.origin.text" @blur="checkInput(word.origin, 'origin')">
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.origin.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -33,7 +33,7 @@
 		<div class="form-group">
 			<label for="inputSame" class="col-sm-2 control-label">近义词：</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputSame" placeholder="same" v-model="word.same.text">
+				<input type="text" class="form-control" id="inputSame" placeholder="same" v-model="word.same.text" @blur="checkInput(word.same, 'same')">
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.same.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -43,7 +43,7 @@
 		<div class="form-group">
 			<label for="inputLabel" class="col-sm-2 control-label">标签：</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputLabel" placeholder="origin" v-model="word.label.text">
+				<input type="text" class="form-control" id="inputLabel" placeholder="label" v-model="word.label.text" @blur="checkInput(word.label, 'label')">
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.label.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -53,7 +53,7 @@
 		<div class="form-group">
 			<label for="inputRate" class="col-sm-2 control-label">使用频率</label>
 			<div class="col-sm-5">
-				<input type="text" class="form-control" id="inputRate" placeholder="please enter 7 rates in a week split in ;" v-model="word.rate.text">
+				<input type="text" class="form-control" id="inputRate" placeholder="please enter 7 rates in a week split in space" v-model="word.rate.text" @blur="checkInput(word.rate, rate)">
 			</div>
 			<p class="col-sm-5 error-tip" v-if="!word.rate.valid">
 				<i class="glyphicon glyphicon-info-sign"></i>
@@ -91,14 +91,27 @@
           label: word.label.text.split(' '),
           rate: word.rate.text.split(' ')
         }
-        this.$http({url: '/saveWord', params, method: 'post'}).then(function (response) {
+        this.$http({url: '/words', params, method: 'post'}).then(function (response) {
           console.log(response)
         }, function (response) {
           console.log(response)
         })
       },
-      checkInput (params) {
-        console.log(params)
+      checkInput (params, string) {
+        if (!params.text) {
+          params.valid = false
+          params.errorTip = 'please fill this information correctly'
+        } else {
+          params.valid = true
+        }
+        if (string === 'name') {
+          var obj = {word: params.text}
+          this.$http({url: '/existWord', obj, method: 'POST'}).then(function (response) {
+            console.log(response)
+          }, function (response) {
+            console.log(response)
+          })
+        }
       }
     }
   }

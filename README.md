@@ -56,3 +56,4 @@ npm install mongoose --save
 连接mongoose的文件 db.js
 
 ###ajax传递数据问题
+vue-resource 使用
