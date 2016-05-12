@@ -56,4 +56,22 @@ npm install mongoose --save
 连接mongoose的文件 db.js
 
 ###ajax传递数据问题
-vue-resource 使用
+vue-resource 使用  
+
+###webpack使用
+代码分包  
+异步加载  
+静态资源(图片，css)的打包  
+用webpack.config.js来组织各个过程：  
+module.exports = {  
+  entry: './main.js',  
+  output: {  
+    filename: 'bundle.js'
+  }
+}  
+webpack 执行一次开发的编译  
+webpack -p for building once for production  
+webpack -p 来针对发布环境编译  
+webpack --watch 进行开发过程持续的增量编译  
+webpack -d 生成SourceMaps  
+要开启后缀名的自动补全，需要设置resolve.extensions参数指明哪些文件webpack要搜索  

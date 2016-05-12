@@ -24,7 +24,7 @@ var saveWord = function (req, res, next) {
 
 var existWord = function (req, res, next) {
 	var checkedWord = req.query;
-	console.log(req);
+	console.log(req.body);
 	wordsCollection.findOne({word: req.query.word}, function (err, data) {
 		if (!err) {
 			if (data) {

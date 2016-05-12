@@ -91,10 +91,8 @@
           label: word.label.text.split(' '),
           rate: word.rate.text.split(' ')
         }
-        this.$http({url: '/words', params, method: 'post'}).then(function (response) {
-          console.log(response)
-        }, function (response) {
-          console.log(response)
+        this.$http.post('/words', params, function (res) {
+          console.log(res)
         })
       },
       checkInput (params, string) {
@@ -106,10 +104,8 @@
         }
         if (string === 'name') {
           var obj = {word: params.text}
-          this.$http({url: '/existWord', obj, method: 'POST'}).then(function (response) {
-            console.log(response)
-          }, function (response) {
-            console.log(response)
+          this.$http.post('/existWord', obj, function (res) {
+            console.log(res)
           })
         }
       }
