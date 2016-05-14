@@ -8,7 +8,7 @@ var router = express.Router();
 //录入新词
 var saveWord = function (req, res, next) {
 	var word = new Word(req.query);
-	console.log(req.query);
+	console.log(req);
 	word.save(function (err, data) {
 		if (!err) {
 			res.send({
@@ -23,8 +23,9 @@ var saveWord = function (req, res, next) {
 
 var existWord = function (req, res, next) {
 	var checkedWord = req.query;
-	console.log(req);
+	// console.log(req);
 	wordsCollection.findOne({word: req.query.word}, function (err, data) {
+		console.log(data);
 		if (!err) {
 			if (data) {
 				res.send({

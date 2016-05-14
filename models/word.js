@@ -6,7 +6,8 @@ var WordSchema = new Schema({
 	origin: String,
 	same: [String],
 	label: [String],
-	rate: [Number]
+	rate: [Number],
+	star: Boolean
 });
 
 var Word = mongoose.model('Word', WordSchema);

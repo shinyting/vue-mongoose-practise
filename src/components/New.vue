@@ -61,6 +61,15 @@
 			</p>
 		</div>
 		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" v-model="word.isStar"> is star word {{word.isStar}}
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-5">
 				<button type="button" class="btn btn-primary" @click="saveAdd(word)">add</button>
 			</div>
@@ -77,7 +86,8 @@
         origin: {text: '', valid: true, errorTip: ''},
         same: {text: '', valid: true, errorTip: ''},
         label: {text: '', valid: true, errorTip: ''},
-        rate: {text: '', valid: true, errorTip: ''}
+        rate: {text: '', valid: true, errorTip: ''},
+        isStar: ''
       }
       return {word: word}
     },
@@ -91,14 +101,15 @@
           label: word.label.text.split(' '),
           rate: word.rate.text.split(' ')
         }
+        params = JSON.stringify(params)
         this.$http.post('/words', params, function (res) {
           console.log(res)
         })
       },
       checkInput (params, string) {
-        this.$http.get('/getWords', function (res) {
-          console.log(res)
-        })
+        // this.$http.get('/getWords', function (res) {
+        //   console.log(res)
+        // })
         if (!params.text) {
           params.valid = false
           params.errorTip = 'please fill this information correctly'
