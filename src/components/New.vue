@@ -93,21 +93,32 @@
     },
     methods: {
       saveAdd (word) {
-        var params = {
-          word: word.name.text,
-          mean: word.mean.text,
-          origin: word.origin.text,
-          same: word.same.text.split(' '),
-          label: word.label.text.split(' '),
-          rate: word.rate.text.split(' '),
-          isStar: word.isStar
+        var allValid
+        for (var key in word) {
+          if (word[key].valid !== undefined) {
+            allValid = word[key].valid || false
+          }
+          if (!allValid) {
+            break
+          }
         }
-        params = JSON.stringify(params)
-        this.$http.post('/words', params).then(function (res) {
-          console.log(res)
-        }, function (res) {
-          console.log(res)
-        })
+        if (allValid) {
+          var params = {
+            word: word.name.text,
+            mean: word.mean.text,
+            origin: word.origin.text,
+            same: word.same.text.split(' '),
+            label: word.label.text.split(' '),
+            rate: word.rate.text.split(' '),
+            isStar: word.isStar
+          }
+          params = JSON.stringify(params)
+          this.$http.post('/words', params).then(function (res) {
+            console.log(res)
+          }, function (res) {
+            console.log(res)
+          })
+        }
       },
       checkInput (params, string) {
         if (!params.text) {
@@ -120,6 +131,12 @@
           var obj = {word: params.text}
           this.$http.post('/existWord', obj).then(function (res) {
             console.log(res)
+            if (res.data.msg === 'the word exist') {
+              params.valid = false
+              params.errorTip = res.data.msg
+            } else {
+              params.errorTip = 'please fill this information correctly'
+            }
           }, function (res) {
             console.log(res)
           })
