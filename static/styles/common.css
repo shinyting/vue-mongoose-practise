@@ -1,3 +1,6 @@
+body {
+	background: #fef0f5;
+}
 .active {
 	background: #40c2f6 !important;
 	color: #fff !important;

@@ -110,11 +110,14 @@
             same: word.same.text.split(' '),
             label: word.label.text.split(' '),
             rate: word.rate.text.split(' '),
-            isStar: word.isStar
+            star: word.isStar
           }
           params = JSON.stringify(params)
           this.$http.post('/words', params).then(function (res) {
             console.log(res)
+            if (res.data.msg === 'success') {
+              // router.go('/new')
+            }
           }, function (res) {
             console.log(res)
           })

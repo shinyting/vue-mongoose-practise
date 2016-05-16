@@ -8,7 +8,6 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" @click="getdata()">getdata</button>
 </template>
 
 <script>
@@ -19,31 +18,7 @@
     },
     data () {
       return {
-        // $.get('/getWords', function (res, err) {
-        //   console.log(res)
-        // })
-        words: [
-          {
-            id: 1,
-            name: '祈福',
-            mean: '向神祷告求福',
-            origin: '礼记',
-            rate: [0.2, 0.5, 0.7, 0.6, 0.02, 0.07, 0.1],
-            label: ['盼望'],
-            same: ['祈祷', '祈愿'],
-            stared: true
-          },
-          {
-            id: 2,
-            name: '潜伏',
-            mean: '向神祷告求福',
-            origin: '礼记',
-            rate: [0.2, 0.5, 0.7, 0.6, 0.02, 0.07, 0.1],
-            label: ['盼望'],
-            same: ['祈祷', '祈愿'],
-            stared: false
-          }
-        ]
+        words: []
       }
     },
     ready: function () {

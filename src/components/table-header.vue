@@ -9,7 +9,7 @@
 <script>
   export default {
     data () {
-      return {listHead: ['编号', '名称', '释义', '出处', '近义词', '标签', '使用频率', '是否星标']}
+      return {listHead: ['编号', '名称', '释义', '出处', '是否星标', '使用频率', '标签', '近义词', '未知属性']}
     }
   }
 </script>
