@@ -8,7 +8,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<button type="button" @click="getdata()"></button>
+	<button type="button" @click="getdata()">getdata</button>
 </template>
 
 <script>
@@ -46,9 +46,17 @@
         ]
       }
     },
+    ready: function () {
+      this.$http.get('/getWords').then(function (res) {
+        this.$set('words', res.data.data)
+        console.log(res)
+      }, function (res) {
+        console.log(res)
+      })
+    },
     methods: {
       getdata: function () {
-        // $.get('/getWords', function (res, err) {
+        // this.$http.get('/getWords', function (res, err) {
         //   console.log(res)
         // })
       }

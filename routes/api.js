@@ -7,8 +7,7 @@ var router = express.Router();
 
 //录入新词
 var saveWord = function (req, res, next) {
-	var word = new Word(req.query);
-	console.log(req);
+	var word = new Word(req.body);
 	word.save(function (err, data) {
 		if (!err) {
 			res.send({
@@ -22,9 +21,9 @@ var saveWord = function (req, res, next) {
 }
 
 var existWord = function (req, res, next) {
-	var checkedWord = req.query;
+	var checkedWord = req.body;
 	// console.log(req);
-	wordsCollection.findOne({word: req.query.word}, function (err, data) {
+	wordsCollection.findOne({word: checkedWord.word}, function (err, data) {
 		if (!err) {
 			if (data) {
 				res.send({
@@ -46,7 +45,6 @@ var existWord = function (req, res, next) {
 var getWords = function (req, res, next) {
 	wordsCollection.find({}).toArray(function (err, data) {
 		if (!err) {
-			console.log(data);
 			res.send({
 				msg: 'success',
 				data: data

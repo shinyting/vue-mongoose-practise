@@ -56,7 +56,12 @@ npm install mongoose --save
 连接mongoose的文件 db.js
 
 ###ajax传递数据问题
-vue-resource 使用  
+vue-resource 使用参照官网即可  
+重点是nodejs写的接口接收post请求发送的参数  
+要使用body-parser模块，接口才能正确接收参数  
+var bodyParser = require('body-parser')  
+app.use(bodyParser.json())  
+app.use(bodyParser.urlencoded({extend: false}))  
 
 ###webpack使用
 代码分包  

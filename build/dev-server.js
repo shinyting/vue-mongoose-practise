@@ -2,6 +2,7 @@ require('../db.js')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
+var bodyParser = require('body-parser')
 var config = require('../config')
 // var favicon = require('serve-favicon')
 var proxyMiddleware = require('http-proxy-middleware')
@@ -18,6 +19,8 @@ var proxyTable = config.dev.proxyTable
 var routes = require('../routes/api');
 
 var app = express()
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extend: false}))
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

@@ -99,17 +99,17 @@
           origin: word.origin.text,
           same: word.same.text.split(' '),
           label: word.label.text.split(' '),
-          rate: word.rate.text.split(' ')
+          rate: word.rate.text.split(' '),
+          isStar: word.isStar
         }
         params = JSON.stringify(params)
-        this.$http.post('/words', params, function (res) {
+        this.$http.post('/words', params).then(function (res) {
+          console.log(res)
+        }, function (res) {
           console.log(res)
         })
       },
       checkInput (params, string) {
-        // this.$http.get('/getWords', function (res) {
-        //   console.log(res)
-        // })
         if (!params.text) {
           params.valid = false
           params.errorTip = 'please fill this information correctly'
@@ -118,7 +118,9 @@
         }
         if (string === 'name') {
           var obj = {word: params.text}
-          this.$http.post('/existWord', obj, function (res) {
+          this.$http.post('/existWord', obj).then(function (res) {
+            console.log(res)
+          }, function (res) {
             console.log(res)
           })
         }
