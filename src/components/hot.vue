@@ -1,7 +1,7 @@
 <template>
 	<div>this is hot page</div>
 	<table class="table">
-		<thead id="table-header"></thead>
+		<thead is="table-header"></thead>
 		<tbody>
 			<tr v-for="item in hotWords">
 				<td v-for="data in item">{{data}}</td>

@@ -71,7 +71,7 @@ var getStarWords = function (req, res, next) {
 }
 
 var getHotWords = function (req, res, next) {
-	wordsCollection.find({rate: {$gt: 0.5}}).toArray(function (err, data) {
+	wordsCollection.find({rate: {$gte: 0.5}}).toArray(function (err, data) {
 		if (!err) {
 			res.send({
 				msg: 'success',
