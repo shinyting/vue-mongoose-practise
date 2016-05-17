@@ -63,7 +63,6 @@ app.use('/', routes);
 
 // serve pure static assets
 var staticPath = path.posix.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
-console.log('123'+staticPath);
 app.use(staticPath, express.static('./static'))
 
 // app.use(favicon(__dirname + '/static/images/favicon.ico'));

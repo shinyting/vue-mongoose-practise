@@ -56,8 +56,38 @@ var getWords = function (req, res, next) {
 	})
 }
 
+var getStarWords = function (req, res, next) {
+	wordsCollection.find({star: true}).toArray(function (err, data) {
+		if (!err) {
+			res.send({
+				msg: 'success',
+				data: data
+			});
+		}
+		else {
+			res.send(404);
+		}
+	})
+}
+
+var getHotWords = function (req, res, next) {
+	wordsCollection.find({rate: {$gt: 0.5}}).toArray(function (err, data) {
+		if (!err) {
+			res.send({
+				msg: 'success',
+				data: data
+			});
+		}
+		else {
+			res.send(404);
+		}
+	})
+}
+
 router.post('/words', saveWord);
 router.post('/existWord', existWord);
 router.get('/getWords', getWords);
+router.get('/getStarWords', getStarWords);
+router.get('/getHotWords', getHotWords);
 
 module.exports = router;
