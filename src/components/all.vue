@@ -5,6 +5,10 @@
 		<tbody>
 			<tr v-for="item in words">
 				<td v-for="data in item">{{data}}</td>
+        <td>
+          <a href="#">编辑</a>
+          <a href="#">删除</a>
+        </td>
 			</tr>
 		</tbody>
 	</table>

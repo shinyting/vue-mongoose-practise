@@ -4,7 +4,13 @@
 		<thead is="table-header"></thead>
 		<tbody>
 			<tr v-for="item in hotWords">
-				<td v-for="data in item">{{data}}</td>
+				<td v-for="data in item">
+					{{data}}
+				</td>
+				<td>
+					<a v-link = "{path: 'new?' + item._id}">编辑</a>
+					<a href="#">删除</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
