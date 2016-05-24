@@ -1,4 +1,5 @@
 <template>
+	<h3>Record a word</h3>
 	<form class="form-horizontal">
 		<div class="form-group">
 			<label for="inputWord" class="col-sm-2 control-label">新词：</label>

@@ -1,5 +1,5 @@
 <template>
-	<div>this is hot page</div>
+	<h3>this is hot page</h3>
 	<table class="table">
 		<thead is="table-header"></thead>
 		<tbody>

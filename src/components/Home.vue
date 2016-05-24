@@ -1,5 +1,5 @@
 <template>
-	<h3>每日一词</h3>
+	<h3>Today's word</h3>
 	<p>
 		{{commend.text}}
 	</p>

@@ -1,5 +1,5 @@
 <template>
-	<div>this is all word page</div>
+	<h3>this is all word page</h3>
 	<table class="table">
 		<thead is="table-header"></thead>
 		<tbody>

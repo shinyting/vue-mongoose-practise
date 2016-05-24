@@ -1,5 +1,5 @@
 <template>
-	<div>this is star page</div>
+	<h3>this is star page</h3>
 	<table class="table">
 		<thead is="table-header"></thead>
 		<tbody>
