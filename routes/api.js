@@ -86,8 +86,7 @@ var getHotWords = function (req, res, next) {
 }
 
 var oneWord = function (req, res, next) {
-	console.log(req.body.id);
-	wordsCollection.findOne({'_id': ObjectId(req.body.id)}, function (data, err) {
+	wordsCollection.findOne({'_id': ObjectId(req.body.id)}, function (err, data) {
 		if (!err) {
 			res.send({
 				msg: 'success',

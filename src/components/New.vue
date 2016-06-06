@@ -98,7 +98,14 @@
       var wordId = paraArray[1] || undefined
       if (wordId) {
         this.$http.post('/oneWord', {id: wordId}).then(function (res) {
-          console.log(res)
+          var wordDetail = res.data.data
+          this.word.name = wordDetail.word
+          this.word.mean = wordDetail.mean
+          this.word.origin = wordDetail.origin
+          this.word.same = wordDetail.same
+          this.word.label = wordDetail.label
+          this.word.rate = wordDetail.rate
+          this.word.isStar = wordDetail.star
         }, function (res) {
           console.log(res)
         })
