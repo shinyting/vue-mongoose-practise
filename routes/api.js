@@ -1,5 +1,6 @@
 var Word = require('../models/word');
 var db = require('../db');
+var ObjectId = require('mongodb').ObjectId;
 var wordsCollection = db.collection('words');
 
 var express = require('express');
@@ -84,10 +85,26 @@ var getHotWords = function (req, res, next) {
 	})
 }
 
+var oneWord = function (req, res, next) {
+	console.log(req.body.id);
+	wordsCollection.findOne({'_id': ObjectId(req.body.id)}, function (data, err) {
+		if (!err) {
+			res.send({
+				msg: 'success',
+				data: data
+			})
+		}
+		else {
+			res.send(404);
+		}
+	})
+}
+
 router.post('/words', saveWord);
 router.post('/existWord', existWord);
 router.get('/getWords', getWords);
 router.get('/getStarWords', getStarWords);
 router.get('/getHotWords', getHotWords);
+router.post('/oneWord', oneWord);
 
 module.exports = router;

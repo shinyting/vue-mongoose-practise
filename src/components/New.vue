@@ -92,6 +92,18 @@
       }
       return {word: word}
     },
+    ready: function () {
+      console.log(window.location.hash)
+      var paraArray = window.location.hash.split('?')
+      var wordId = paraArray[1] || undefined
+      if (wordId) {
+        this.$http.post('/oneWord', {id: wordId}).then(function (res) {
+          console.log(res)
+        }, function (res) {
+          console.log(res)
+        })
+      }
+    },
     methods: {
       saveAdd (word) {
         var allValid
