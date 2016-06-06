@@ -8,3 +8,6 @@ body {
 .error-tip {
 	color: #fb403b;
 }
+.remove {
+	cursor: pointer;
+}

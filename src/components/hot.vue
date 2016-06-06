@@ -9,7 +9,7 @@
 				</td>
 				<td>
 					<a v-link = "{path: 'new?' + item._id}">编辑</a>
-					<a href="#">删除</a>
+					<a @click="removeWord(item)" class="remove">删除</a>
 				</td>
 			</tr>
 		</tbody>
@@ -32,6 +32,15 @@
       }, function (res) {
         console.log(res)
       })
+    },
+    methods: {
+      removeWord: function (item) {
+        this.$http.post('/removeWord', {id: item._id}).then(function (res) {
+          console.log(res)
+        }, function (res) {
+          console.log(res)
+        })
+      }
     }
   }
 </script>
