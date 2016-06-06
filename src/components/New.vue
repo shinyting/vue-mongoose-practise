@@ -72,7 +72,8 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-5">
-				<button type="button" class="btn btn-primary" @click="saveAdd(word)">add</button>
+				<button type="button" class="btn btn-primary" @click="saveAdd(word)" v-if="type=='new'">add</button>
+				<button type="button" class="btn btn-primary" @click="saveEdit(word)" v-if="type=='edit'">save</button>
 			</div>
 		</div>
 	</form>
@@ -90,21 +91,22 @@
         rate: {text: '', valid: true, errorTip: ''},
         isStar: ''
       }
-      return {word: word}
+      return {word: word, type: 'new'}
     },
     ready: function () {
-      console.log(window.location.hash)
       var paraArray = window.location.hash.split('?')
       var wordId = paraArray[1] || undefined
       if (wordId) {
+        this.word.wId = wordId
+        this.type = 'edit'
         this.$http.post('/oneWord', {id: wordId}).then(function (res) {
           var wordDetail = res.data.data
-          this.word.name = wordDetail.word
-          this.word.mean = wordDetail.mean
-          this.word.origin = wordDetail.origin
-          this.word.same = wordDetail.same
-          this.word.label = wordDetail.label
-          this.word.rate = wordDetail.rate
+          this.word.name.text = wordDetail.word
+          this.word.mean.text = wordDetail.mean
+          this.word.origin.text = wordDetail.origin
+          this.word.same.text = wordDetail.same
+          this.word.label.text = wordDetail.label
+          this.word.rate.text = wordDetail.rate
           this.word.isStar = wordDetail.star
         }, function (res) {
           console.log(res)
@@ -134,6 +136,36 @@
           }
           params = JSON.stringify(params)
           this.$http.post('/words', params).then(function (res) {
+            console.log(res)
+            if (res.data.msg === 'success') {
+              // router.go('/new')
+            }
+          }, function (res) {
+            console.log(res)
+          })
+        }
+      },
+      saveEdit (word) {
+        var allValid
+        for (var key in word) {
+          if (word[key].valid !== undefined) {
+            allValid = word[key].valid || false
+          }
+          if (!allValid) {
+            break
+          }
+        }
+        if (allValid) {
+          var params = {
+            word: word.name.text,
+            mean: word.mean.text,
+            origin: word.origin.text,
+            same: word.same.text,
+            label: word.label.text,
+            rate: word.rate.text,
+            star: word.isStar
+          }
+          this.$http.post('/editWords', {'id': word.wId, 'params': params}).then(function (res) {
             console.log(res)
             if (res.data.msg === 'success') {
               // router.go('/new')

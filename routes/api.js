@@ -99,11 +99,23 @@ var oneWord = function (req, res, next) {
 	})
 }
 
+var editWords = function (req, res, next) {
+	wordsCollection.update({'_id': ObjectId(req.body.id)}, {$set: req.body.params}, function (err, result) {
+		if (!err) {
+			res.send({'msg': 'success'});
+		}
+		else {
+			console.log(err);
+		}
+	})
+}
+
 router.post('/words', saveWord);
 router.post('/existWord', existWord);
 router.get('/getWords', getWords);
 router.get('/getStarWords', getStarWords);
 router.get('/getHotWords', getHotWords);
 router.post('/oneWord', oneWord);
+router.post('/editWords', editWords);
 
 module.exports = router;
