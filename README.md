@@ -91,4 +91,7 @@ var ObjectId = require('mongodb').ObjectId;
 改：update({key: value}, {$set: params}, function(err, data))  
 查：find({}).toArray(function(err, data)) //查找全部  
     find({key: value}).toArray(function(err, data)) //条件查找  
-    findOne({key: value}, function(err, data)) //查找一条数据
+    findOne({key: value}, function(err, data)) //查找一条数据  
+
+###vue双向绑定  
+用法同angular类似
