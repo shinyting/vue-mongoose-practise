@@ -80,3 +80,15 @@ webpack -p 来针对发布环境编译
 webpack --watch 进行开发过程持续的增量编译  
 webpack -d 生成SourceMaps  
 要开启后缀名的自动补全，需要设置resolve.extensions参数指明哪些文件webpack要搜索  
+
+###ObjectId
+var ObjectId = require('mongodb').ObjectId;  
+如果需要以ObjectId来进行数据查找的话，则需要引入上面的依赖  
+
+###mongodb 增删改查  
+增：save(function(err, data))  
+删：remove({key: value}, function(err, data))  
+改：update({key: value}, {$set: params}, function(err, data))  
+查：find({}).toArray(function(err, data)) //查找全部  
+    find({key: value}).toArray(function(err, data)) //条件查找  
+    findOne({key: value}, function(err, data)) //查找一条数据
