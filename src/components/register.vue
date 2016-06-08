@@ -1,6 +1,6 @@
 <template>
 	<div  class="col-sm-3 col-md-offset-4 login-box">
-		<h1>登录词汇</h1>
+		<h1>注册辞汇</h1>
 		<form>
 			<div class="form-group">
 				<label for="inputName">用户名：</label>
