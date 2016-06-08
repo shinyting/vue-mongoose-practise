@@ -11,3 +11,15 @@ body {
 .remove {
 	cursor: pointer;
 }
+.mgt15 {
+	margin-top: 15px;
+}
+.login-box {
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 10px 20px;
+	margin-top: 50px;
+}
+.form-group {
+	margin-top: 30px;
+}

@@ -11,6 +11,10 @@
                         <a v-link="menu.link">{{menu.navText}}</a>
                     </li>
                 </ul>
+                <div class="pull-right mgt15">
+                    <a v-link="{path: 'login'}">登录</a>
+                    <a href="#">注册</a>
+                </div>
             </div>
         </nav>
         <div class="container-fluid">

@@ -5,6 +5,7 @@ import New from './components/New'
 import All from './components/all'
 import Hot from './components/hot'
 import Star from './components/star'
+import Login from './components/login'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -29,8 +30,11 @@ router.map({
   '/hot': {
     component: Hot
   },
-  'star': {
+  '/star': {
     component: Star
+  },
+  '/login': {
+    component: Login
   }
 })
 router.redirect({
