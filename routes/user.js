@@ -19,6 +19,6 @@ var saveUser = function (req, res, next) {
 	})
 }
 
-router.post('userRegister', saveUser);
+router.post('/userRegister', saveUser);
 
 module.exports = router;
