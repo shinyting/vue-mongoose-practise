@@ -17,6 +17,7 @@ var port = process.env.PORT || config.dev.port
 var proxyTable = config.dev.proxyTable
 
 var routes = require('../routes/api');
+var user = require('../routes/user');
 
 var app = express()
 app.use(bodyParser.json())
@@ -60,6 +61,7 @@ app.use(devMiddleware)
 app.use(hotMiddleware)
 
 app.use('/', routes);
+app.use('/user', user);
 
 // serve pure static assets
 var staticPath = path.posix.join(config.build.assetsPublicPath, config.build.assetsSubDirectory)
